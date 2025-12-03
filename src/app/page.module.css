@@ -1,0 +1,244 @@
+.page {
+  min-height: 100vh;
+  padding: 48px clamp(24px, 6vw, 72px);
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  background: radial-gradient(
+      circle at 20% 10%,
+      rgba(255, 255, 255, 0.04) 0,
+      rgba(255, 255, 255, 0.02) 160px,
+      transparent 320px
+    ),
+    var(--page-bg);
+}
+
+.header,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.brand {
+  font-family: var(--font-cairo), sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(248, 249, 255, 0.7);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.nav a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 200ms ease;
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.hero {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  gap: clamp(36px, 6vw, 96px);
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  color: rgba(248, 249, 255, 0.38);
+}
+
+.content h1 {
+  font-family: var(--font-cairo), sans-serif;
+  font-size: clamp(32px, 4vw + 12px, 56px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+.subheadline {
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--text-muted);
+  max-width: 540px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 200ms ease;
+}
+
+.primaryButton {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.secondaryButton {
+  border: 1px solid var(--accent);
+  color: var(--text-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryButton:hover {
+    filter: brightness(1.08);
+  }
+
+  .secondaryButton:hover {
+    background: rgba(94, 106, 216, 0.08);
+  }
+}
+
+.assurance {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(248, 249, 255, 0.5);
+}
+
+.assuranceLabel {
+  font-weight: 600;
+}
+
+.assuranceDivider {
+  width: 28px;
+  height: 1px;
+  background: rgba(248, 249, 255, 0.12);
+}
+
+.visual {
+  position: relative;
+  padding: clamp(24px, 5vw, 40px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 28px;
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0)
+    ),
+    rgba(14, 14, 18, 0.92);
+}
+
+.visual::before,
+.visual::after {
+  content: "";
+  position: absolute;
+  inset-inline: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 0.6;
+}
+
+.visual::before {
+  top: 42px;
+}
+
+.visual::after {
+  bottom: 42px;
+}
+
+.illustration {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footer {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 13px;
+  color: rgba(248, 249, 255, 0.4);
+}
+
+.footerLinks {
+  display: flex;
+  gap: 18px;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .visual {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 32px 20px 48px;
+    gap: 56px;
+  }
+
+  .header,
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .nav {
+    gap: 16px;
+    font-size: 13px;
+  }
+
+  .assurance {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .assuranceDivider {
+    display: none;
+  }
+}

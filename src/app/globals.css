@@ -1,0 +1,42 @@
+:root {
+  color-scheme: dark;
+  --page-bg: #0e0e12;
+  --page-surface: #12121a;
+  --text-primary: #f6f6fb;
+  --text-muted: rgba(248, 249, 255, 0.62);
+  --divider: rgba(152, 156, 175, 0.14);
+  --accent: #5e6ad8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--page-bg);
+}
+
+body {
+  font-family: var(--font-noto-sans-arabic), "Noto Sans Arabic", system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
